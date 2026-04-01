@@ -1,5 +1,7 @@
 # iron-proxy
 
+[![Docker Pulls](https://img.shields.io/docker/pulls/ironsh/iron-proxy)](https://hub.docker.com/r/ironsh/iron-proxy)
+
 An egress firewall for untrusted workloads. Default-deny HTTP/HTTPS, secret
 injection, and full audit logging, in a single binary.
 
@@ -20,6 +22,18 @@ server, giving you:
         <img src="./images/intro.gif" width="75%" />
     </a>
 </div>
+
+## Installation
+
+Docker images are available on [Docker Hub](https://hub.docker.com/r/ironsh/iron-proxy)
+and pre-built binaries for Linux/macOS (amd64/arm64) are on
+[GitHub Releases](https://github.com/ironsh/iron-proxy/releases).
+
+Or build from source:
+
+```bash
+go build -o iron-proxy ./cmd/iron-proxy
+```
 
 ## Quick start
 
@@ -440,12 +454,6 @@ curl -H "X-Internal: proxy-internal-tok" https://httpbin.org/headers
 
 # 5. Secret swap: proxy token in query parameter
 curl "https://httpbin.org/get?token=proxy-openai-abc123&q=hello"
-```
-
-## Building
-
-```bash
-go build -o iron-proxy ./cmd/iron-proxy
 ```
 
 ## Audit log format
